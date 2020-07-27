@@ -7,7 +7,7 @@
 	<authorUrl>http://mystery27.pp.ua</authorUrl>
 	<copyright>Copyright (C) 2015 All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>1.1.1</version>
+	<version>1.1.2</version>
 	<description>TPL_elektro_XML_DESCRIPTION</description>
 	<files>
 		<folder>css</folder>
@@ -121,8 +121,8 @@
 	<!-- 	For core templates, we also install/uninstall the language files in the core language folders.
 	-->
 	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.tpl_elektro.ini</language>
-		<language tag="en-GB">en-GB/en-GB.tpl_elektro.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_mobil_e.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_mobil_e.sys.ini</language>
 	</languages>
 
 </extension>
