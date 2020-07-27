@@ -1,0 +1,46 @@
+
+.elektro-header-menu .joomla-nav li {
+    border-right: 1px solid #000;
+    display: block;
+    float: left;
+    line-height: 1.5;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.elektro-header-menu .joomla-nav li.item455 {
+    border-right: medium none;
+    padding-right: 0;
+}
+.elektro-header-menu .joomla-nav li a {
+    color: #dadada;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 13px;
+    padding: 0 2.5em;
+    text-transform: none;
+}
+.elektro-header-menu .joomla-nav li ul li a {color:#333}
+.elektro-header-menu .joomla-nav li a.selected {
+    color: #555;
+    cursor: default;
+}
+.elektro-header-menu .joomla-nav li a, .elektro-header-menu .joomla-nav li a:focus, .elektro-header-menu .joomla-nav li a:hover {
+    text-decoration: none;
+}
+.elektro-header-menu .joomla-nav li a:hover {
+    color: red;
+    text-decoration: underline;
+}
+.elektro-header-menu .joomla-nav li a:focus, .elektro-header-menu .joomla-nav li a:hover {
+    outline: medium none;
+    text-decoration: underline;
+}
+.elektro-header-menu .joomla-nav li.label {
+    font-weight: normal;
+    line-height: 1.5;
+    margin-right: 1em;
+    padding: 0.15em 0.33em;
+}

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" method="upgrade" version="3.0" client="site" >
+	<name>mobil_e</name>
+	<creationDate>27.07.2020</creationDate>
+	<author>Viktor Dunda</author>
+	<authorEmail>viktor@mystery27.pp.ua</authorEmail>
+	<authorUrl>http://mystery27.pp.ua</authorUrl>
+	<copyright>Copyright (C) 2015 All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.1.1</version>
+	<description>TPL_elektro_XML_DESCRIPTION</description>
+	<files>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>img</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>README.md</filename>
+		<filename>style.css</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>template_update.xml</filename>
+		<filename>templateDetails.xml</filename>
+	</files>
+	<updateservers>
+		<server type="extension" name="Template pro-spec mobil_e version">https://raw.githubusercontent.com/GJTemplate/pro-spec.ru-mobil_e/master/template_update.xml</server>
+	</updateservers>
+	<positions>
+		<position>elektro-bottomleft</position>
+		<position>elektro-bottommiddle</position>
+		<position>elektro-search</position>
+		<position>elektro-cart</position>
+		<position>elektro-banner_1</position>
+		<position>elektro-banner_left</position>
+		<position>elektro-banner_right</position>
+		<position>elektro-sidebar</position>
+		<position>elektro-m-topmenu</position>
+		<position>elektro-topquote</position>
+		<position>elektro-center_top</position>
+		<position>left_left</position>
+		<position>elektro-bottom-left</position>
+		<position>breadcrumbs</position>
+		<position>logo</position>
+		<position>elektro-footer</position>
+		<position>elektro-footer1</position>
+		<position>elektro-footer2</position>
+		<position>elektro-footer3</position>
+		<position>elektro-center_bottom</position>
+		<position>elektro-center_bottom1</position>
+		<position>elektro-center_bottom2</position>
+		<position>elektro-center_bottom3</position>
+		<position>bottom_pro</position>
+		<position>bottom_kli</position>
+		<position>elektro-header-menu</position>
+		<position>elektro-header-menu_m</position>
+		<position>elektro-regist</position>
+		<position>mainbody_top</position>
+		<position>mainbody_top1</position>
+		<position>mainbody_top2</position>
+		<position>mainbody_top3</position>
+		<position>mainbody_top4</position>
+		<position>mainbody_top5</position>
+		<position>mainbody_top6</position>
+		<position>mainbody_center</position>
+		<position>mainbody_center1</position>
+		<position>mainbody_center2</position>
+		<position>mainbody_center3</position>
+		<position>mainbody_center4</position>
+		<position>mainbody_center5</position>
+		<position>mainbody_center6</position>
+		<position>footer_nav</position>
+		<position>footer_phone</position>
+		<position>footer_phone_m</position>
+		<position>myfilter</position>
+		<position>user1</position>
+		<position>user2</position>
+		<position>user3</position>
+		<position>user4</position>
+		<position>user5</position>
+		<position>user6</position>
+		<position>user7</position>
+		<position>user8</position>
+		<position>user9</position>
+		<position>user10</position>
+		<position>user11</position>
+		<position>user12</position>
+		<position>user13</position>
+		<position>user14</position>
+		<position>user15</position>
+		<position>user16</position>
+		<position>user17</position>
+		<position>user18</position>
+		<position>user19</position>
+		<position>user20</position>
+		<position>montag1</position>
+		<position>m-left_left</position>
+		<position>elektro-menu_center</position>
+		<position>elektro-banner_center_left</position>
+		<position>elektro-banner_center_right</position>
+		<position>elektro-banner_center_center</position>
+		<position>my_litle_banner_left</position>
+		<position>my_litle_banner_center</position>
+		<position>my_litle_banner_right</position>
+		<position>my_litle_banner_left2</position>
+		<position>my_litle_banner_right2</position>
+		<position>elektro-stiky</position>
+		<position>elektro-stiky1</position>
+		<position>elektro-stiky2</position>
+		<position>elektro-stiky3</position>
+		<position>elektro-stiky4</position>
+		<position>mob_left</position>
+	</positions>
+
+	<!-- 	For core templates, we also install/uninstall the language files in the core language folders.
+	-->
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.tpl_elektro.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_elektro.sys.ini</language>
+	</languages>
+
+</extension>
