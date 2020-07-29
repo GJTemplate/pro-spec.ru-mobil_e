@@ -147,7 +147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <script type="text/javascript">
                     setTimeout(function () {
                         jQuery("#blockBest50").click(function () {
-                            wgnz11.load.js('<?= $this->baseurl ?>/modules/mod_myod_jshopping_cat/assets/js/mod_myod_jshopping_cat.js');
+                            wgnz11.load.js('<?= $this->baseurl ?>/modules/mod_myod_jshopping_cat/assets/js/mod_myod_jshopping_cat.js?003');
                         })
                     }, 500);
                 </script>
