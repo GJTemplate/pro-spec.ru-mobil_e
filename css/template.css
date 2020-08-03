@@ -2779,7 +2779,7 @@ div#nextend-accordion-menu-290 {
 	border-right: none;
 	border-left: none;
 	border-bottom: 1px dashed #dadada;
-	display:none;
+	/* display:none; */
 }
 #block_product .my_image_block {
     clear: both;
@@ -3219,6 +3219,24 @@ div.b1c-close {
     font-weight: bold;
     padding:0;
     text-align: left;
+}
+
+.prod_price >div {
+    /* height: 860px; */
+}
+
+.prod_price {}
+
+.prod_price .buttons {
+    /* float: left; */
+    /* height: 30px; */
+    /* width: 100%; */
+}
+
+.buttons > div {
+    /* width: 100%; */
+    /* float: left; */
+    /* height: 100px; */
 }
 .prod_qty {
     font-size: 15px;
@@ -3843,7 +3861,7 @@ div.contactus-lightbox-closer > i {
 	clear: both;
 	float: left;
 	overflow: hidden;
-    max-height: 360px;
+	max-height: 350px;
 }
 #my_opisanie_fon .btn-info, .mainblock .btn-info{
 	

@@ -7,11 +7,36 @@
 
 defined('_JEXEC') or die;
 
+/* The following line gets the application object for things like displaying the site name */
+$app = JFactory::getApplication();
+$doc = \Joomla\CMS\Factory::getDocument();
+
+
+$controller = $app->input->get('controller' , null );
+$view = $app->input->get('view' , null );
+//  $view == 'featured' - главная страница
+//  /?device=mobile
+
+
+//		define('TEMPLATE_VERSION', 'dev');
+if (!defined('TEMPLATE_VERSION')){
+    $xml_file = JPATH_THEMES . '/mobil_e/templateDetails.xml';
+    $dom = new DOMDocument("1.0", "utf-8");
+    $dom->load($xml_file);
+    $version = $dom->getElementsByTagName('version')->item(0)->textContent;
+    define('TEMPLATE_VERSION', $version );
+}
+
+
+
+
+
+
+
 /* The following line loads the MooTools JavaScript Library */
 JHtml::_('behavior.framework', true);
 
-/* The following line gets the application object for things like displaying the site name */
-$app = JFactory::getApplication();
+
 ?>
 <?php echo '<?'; ?>xml version="1.0" encoding="<?php echo $this->_charset ?>"?>
 <!DOCTYPE html PUBLIC
@@ -90,7 +115,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div id="header_elektro">
 		<div class="container">
 			<div class="joomla-header span-16 append-1">
-				<div id="elektro_logo"><a href=""><jdoc:include type="modules" name="logo" style="none" /></a></div>
+                <?= JLayoutHelper::render('heder.logo', [] ); ?>
+
 			
 				
 			</div>
@@ -101,60 +127,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<?php endif; ?>
 		</div>
 		</div>
-		<div id="search"><jdoc:include type="modules" name="elektro-search" style="none" /></div>
+		<div id="search">
+            <jdoc:include type="modules" name="elektro-search" style="none" />
+        </div>
 		<div class="elektro-banner_left">
 	  	 			<jdoc:include type="modules" name="elektro-banner_left" style="none" />
 				</div>
 				<div style="clear: both;  height: 1px; margin: 0px;"></div>
-		<?php if($this->countModules('elektro-topmenu') or $this->countModules('position-2') ) : ?>
-			<?php
-                 if ($_SERVER['REQUEST_URI']=='/' || $_SERVER['REQUEST_URI']=='/?device=mobile')
-            {?>
-			<div id="top_menu" <?php if($this->countModules('elektro-banner_1') ) : ?>style="width:100%;"<?php endif; ?> >
-		        <?php 
-                     $controller = JRequest::getVar('controller', null);
-                     if (!($controller == 'product')) { ?>    
-					<jdoc:include type="modules" name="elektro-topmenu" style="container" />
-					<?php }?>
-					<?php 
-                     $controller = JRequest::getVar('controller', null);
-                     
-                     if ($controller == 'product') { ?>    
-					<noindex><jdoc:include type="modules" name="elektro-topmenu" style="container" /><noindex>
-					<?php }?>
-			</div>
-			<?php }else {?>
-            <noindex>
-			    <div id="blockBest50">КАТАЛОГ ТОВАРОВ</div>
-				<div id="divId" style="display: none">
-						<div id="top_menu" <?php if($this->countModules('elektro-banner_1') ) : ?>style="width:100%;"<?php endif; ?> >
-		        <?php 
-                     $controller = JRequest::getVar('controller', null);
-                     
-                     if (!($controller == 'product')) { ?>    
-					<jdoc:include type="modules" name="elektro-topmenu" style="container" />
-					<?php }?>
-					<?php 
-                     $controller = JRequest::getVar('controller', null);
-                     
-                     if ($controller == 'product') { ?>    
-					<noindex><jdoc:include type="modules" name="elektro-topmenu" style="container" /></noindex>
-					<?php }?>
-			</div>
-			</div>
+		<?php
+
+        if($this->countModules('elektro-topmenu or position-2') )
+        {
+            $style = null ;
+            if( $this->countModules('elektro-banner_1') )
+            {
+                $style = ' style="width:100%;" ' ;
+            }#END IF
+            ?>
+            <div id="blockBest50">КАТАЛОГ ТОВАРОВ</div>
+            <div id="divId" style="display: none">
+                <?php
+
+                ?>
+                <div id="top_menu" <?= $style ?> >
+                    <jdoc:include type="modules" name="elektro-topmenu" style="container" />
+                    <?php
 
 
-                <script type="text/javascript">
-                    setTimeout(function () {
-                        jQuery("#blockBest50").click(function () {
-                            wgnz11.load.js('<?= $this->baseurl ?>/modules/mod_myod_jshopping_cat/assets/js/mod_myod_jshopping_cat.js?003');
-                        })
-                    }, 500);
-                </script>
-</noindex>
-			<?php }?>
+
+                    if ($controller == 'product') { ?>
+                        <noindex>
+                            <jdoc:include type="modules" name="elektro-topmenu" style="container" />
+                        </noindex>
+                    <?php }?>
+                </div>
+            </div>
+
 			<jdoc:include type="modules" name="position-1" style="container" />
-		<?php endif; ?>
+		<?php
+        } ?>
+
+
+
         <div class="elektro-center_top">
                     <div style=""><jdoc:include type="modules" name="mainbody_center" style="xhtml" /></div>
 	  	 			<div style=""><jdoc:include type="modules" name="elektro-center_top" style="none" /></div>
@@ -176,16 +190,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	  	 			<jdoc:include type="modules" name="elektro-center_top" style="none" />
 				</div>
 				<div style="clear: both;  height: 1px; margin: 0px;"></div>
-			<?php endif; ?>	
+			<?php endif;
+
+
+
+			?>
 		<div id="content-elektro" class=""> 
-        	<?php if($this->countModules('mainbody_center1') or $this->countModules('mainbody_center2') or $this->countModules('mainbody_center3') or $this->countModules('mainbody_center4')) : ?>
+        	<?php
+            $positionArr = [
+                'mainbody_center1' , 
+                'mainbody_center2' , 
+                'mainbody_center3' , 
+                'mainbody_center4' , 
+                
+            ] ;
+            if( $this->countModules( implode(' or ' , $positionArr )) ) : ?>
                 <div class="elektro-center_boss">
-<div class="tab-content">
-<div class="title-tab-content"><a href="/catalog/sredstva-i-sistemy-bezopasnosti/poiskovo-dosmotrovoe-oborudovanie">Поисковое и досмотровое оборудование</a></div>
-<div style=""><jdoc:include type="modules" name="mainbody_center1" style="none" /></div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-<div class="bottom-tab-content"><jdoc:include type="modules" name="mainbody_center1-1" style="none" /></div>
-</div>
+                    <div class="tab-content">
+                        <div class="title-tab-content">
+                            <a href="/catalog/sredstva-i-sistemy-bezopasnosti/poiskovo-dosmotrovoe-oborudovanie">
+                                Поисковое и досмотровое оборудование
+                            </a>
+                        </div>
+                        <div style="">
+                            <jdoc:include type="modules" name="mainbody_center1" style="none"/>
+                        </div>
+                        <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                        <div class="bottom-tab-content">
+                            <jdoc:include type="modules" name="mainbody_center1-1" style="none"/>
+                        </div>
+                    </div>
 <div class="tab-content">
 <div class="title-tab-content"><a href="/catalog/sredstva-i-sistemy-bezopasnosti/introskopy-rentgenotelevizionnoe-oborudovanie">Интроскопы</a></div>
 <div style=""><jdoc:include type="modules" name="mainbody_center2" style="none" /></div>
@@ -208,19 +242,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>			
 				</div>
 <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-            <?php endif; ?>			
-		<div id="elektro_center">				
-			<div class="center" <?php if($this->countModules('mobile_left') && (!($controller == 'product'))&& (!($controller == 'cart')) && (!($controller == 'checkout')) ) : ?>style="width: 73.6%; float: left;"<?php endif; ?> >
-			<?php if($this->countModules('elektro-topquote') or $this->countModules('position-15') ) : ?>
-				
-				<jdoc:include type="modules" name="position-15" style="none" />
+            <?php endif; ?>
 
-			<?php endif; ?>
-				<jdoc:include type="message" />
-				<jdoc:include type="component" />
-				<hr />
-			<div style="clear: both;  height: 1px; margin: 0px;"></div>
-			</div>
+
+
+
+
+
+
+            <?php
+            $positionArr = ['mobile_left', 'product', 'cart', 'checkout',];
+            $style = ( $this->countModules( implode(' or ' , $positionArr ))?'style="width: 73.6%; float: left;"':null ) ;
+            ?>
+            <div id="elektro_center">
+                <div class="center"  <?= $style ?> >
+                    <?php
+                    
+                    if( $this->countModules('elektro-topquote  or position-15') ) :
+
+
+                        ?>
+
+                        <jdoc:include type="modules" name="position-15" style="none"/>
+
+                    <?php
+                    endif; ?>
+                    <jdoc:include type="message"/>
+                    <jdoc:include type="component"/>
+                    <hr/>
+                    <div style="clear: both;  height: 1px; margin: 0px;"></div>
+                </div>
+
+
 				<?php if($this->countModules('elektro-bottomleft') or $this->countModules('position-11')) : ?>
 			 	<div class="span-7 colborder">
 					<jdoc:include type="modules" name="elektro-bottomleft" style="bottommodule" />
