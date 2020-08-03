@@ -5,7 +5,7 @@
 * @author Dmitry Stashenko
 * @website http://nevigen.com/
 * @email support@nevigen.com
-* @copyright Copyright ï¿½ Nevigen.com. All rights reserved.
+* @copyright Copyright © Nevigen.com. All rights reserved.
 * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 * @license agreement http://nevigen.com/license-agreement.html
 **/

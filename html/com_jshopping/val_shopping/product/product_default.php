@@ -2,50 +2,63 @@
 <?php $product = $this->product?>
 <?php include(dirname(__FILE__)."/load.js.php");
 
+$document   =   JFactory::getDocument();
+$doc   =   \Joomla\CMS\Factory::getDocument();
 
+
+$renderer   = $doc->loadRenderer('modules');
 
 ?>
-<div class="jshop productfull" itemscope itemtype="https://schema.org/Product">
+    <div class="jshop productfull" itemscope itemtype="https://schema.org/Product">
 <!--верх-->
-<div  class="b1c-good" >
-<div id="top_descriptin">
-  <div class="oferta_top">
-	       <div  class="offerta">
-		   <?php 
-		$document   = & JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'offerta';
-        echo $renderer->render($position, $options, null);
-        ?>
-		   </div>
-		   <div  class="offerta1">
-		   <?php 
-		$document   = & JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'offerta1';
-        echo $renderer->render($position, $options, null);
-        ?>
-		   </div>
-		   <div  class="offerta2">
-		   <?php 
-		$document   = & JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'offerta2';
-        echo $renderer->render($position, $options, null);
-        ?>
-		   </div>
-		   <div  class="offerta3"><?php print $this->_tmp_product_html_after_my_buttons;?><?php print $this->_tmp_product_html_my_buttons;?></div>
-		   <div  class="offerta4"><?php if ($this->enable_wishlist){?>
-                    <input type="submit" class="button wishlist" value="<?php echo _JSHOP_ADD_TO_WISHLIST?>" onclick="jQuery('#to').val('wishlist');" />
-                <?php }?></div>
-		   <div style="float:left; margin: 20px;" id="pdf1"></div>
-		   
-	  </div>
-<div style="width:100%; clear:both; border-bottom: 1px dashed #eeeeee;"></div>
-<form name="product" method="post" action="<?php print $this->action?>" enctype="multipart/form-data" autocomplete="off">
+    <div  class="b1c-good" >
+        <div id="top_descriptin">
+            <?= JLayoutHelper::render('product.oferta_top' , [] );?>
+            <!--<div class="oferta_top">
+                <div class="offerta">
+                    <?php
+/*
+
+                    $options = array('style' => 'xhtml');
+                    $position = 'offerta';
+                    echo $renderer->render($position, $options, null);
+                    */?>
+                </div>
+                <div class="offerta1">
+                    <?php
+/*                    $document = &JFactory::getDocument();
+                    $renderer = $document->loadRenderer('modules');
+                    $options = array('style' => 'xhtml');
+                    $position = 'offerta1';
+                    echo $renderer->render($position, $options, null);
+                    */?>
+                </div>
+                <div class="offerta2">
+                    <?php
+/*                    $document = &JFactory::getDocument();
+                    $renderer = $document->loadRenderer('modules');
+                    $options = array('style' => 'xhtml');
+                    $position = 'offerta2';
+                    echo $renderer->render($position, $options, null);
+                    */?>
+                </div>
+                <div class="offerta3">
+                    <?php
+/*                    print $this->_tmp_product_html_after_my_buttons; */?>
+                    <?php
+/*                    print $this->_tmp_product_html_my_buttons; */?>
+                </div>
+                <div class="offerta4">
+                    <?php
+/*                    if( $this->enable_wishlist ){ */?>
+                        <input type="submit" class="button wishlist" value="<?php
+/*                        echo _JSHOP_ADD_TO_WISHLIST */?>" onclick="jQuery('#to').val('wishlist');"/>
+                    <?php
+/*                    } */?></div>
+                <div style="float:left; margin: 20px;" id="pdf1"></div>
+
+            </div>-->
+            <form name="product" method="post" action="<?php print $this->action?>" enctype="multipart/form-data" autocomplete="off">
     
     
      <?php if ($this->config->product_show_manufacturer && $this->product->manufacturer_info->name!=""){?>

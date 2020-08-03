@@ -1,7 +1,11 @@
 <?php defined( '_JEXEC' ) or die(); ?>
 <?php $product = $this->product?>
-<?php include(dirname(__FILE__)."/load.js.php");?>
-<div class="jshop productfull" itemscope itemtype="http://schema.org/Product">
+<?php include(dirname(__FILE__)."/load.js.php");
+
+
+
+?>
+<div class="jshop productfull" itemscope itemtype="https://schema.org/Product">
 <!--верх-->
 <div  class="b1c-good" >
 <div id="top_descriptin">
@@ -38,6 +42,7 @@
                     <input type="submit" class="button wishlist" value="<?php echo _JSHOP_ADD_TO_WISHLIST?>" onclick="jQuery('#to').val('wishlist');" />
                 <?php }?></div>
 		   <div style="float:left; margin: 20px;" id="pdf1"></div>
+		   
 	  </div>
 <div style="width:100%; clear:both; border-bottom: 1px dashed #eeeeee;"></div>
 <form name="product" method="post" action="<?php print $this->action?>" enctype="multipart/form-data" autocomplete="off">
@@ -114,12 +119,12 @@
     <?php }?>
 	<?php }?>
 			 <?php if ($this->product->product_manufacturer_id ==232){?>
-                <div class="product_diler" style="position: absolute; bottom: 100px;  right: 50px;">
+                <div class="product_diler">
                    <img src="/images/oficialdiler.png" />
                 </div>
             <?php }?>
 			<?php if ($this->product->product_manufacturer_id ==1301){?>
-                <div class="product_diler" style="position: absolute; bottom: 100px;  right: 50px; width: 100px;">
+                <div class="product_diler" >
 				   <img src="/images/best-the-best.png" />
                    <img src="/images/2_year.png" />
                 </div>
@@ -200,10 +205,24 @@
 	  <div id="my_opisanie">
 	  <!-- Блок с ценой  -->
 	    <div id="my_opisanie_fon" class="column">	
-		<div style="">
+		<div class="tovar-karta-center">
 <!-- WARNING -->
 
 	<div id="cena"> 
+	        <div class="deliverytime">
+		<?php if ($this->product->_label_name == 'Товара нет в наличии'  || $product->product_price ==0 || $this->product->delivery_time != '' || $this->product->_label_name == 'Скоро в продаже' ){?>
+		<?php if ( $this->product->delivery_time == '30 дней' || $this->product->_label_name == 'Скоро в продаже' ){?>
+		<?php echo'<div class="tovar_nalichie_deliver_zakaz">ПРЕДЗАКАЗ</div>' ?>
+		<?php } else { ?>
+		<?php if ($this->product->product_manufacturer_id == '88'){?>
+		<?php echo'<div class="tovar_nalichie_deliver">Товар в наличии</div>'?>
+		<?php } else { ?>
+		<?php echo'<div class="tovar_nalichie_deliver_zakaz">Под заказ</div>' ?>
+		<?php }?>
+		<?php }?>
+		<?php } else { ?>
+		<?php echo'<div class="tovar_nalichie_deliver">Товар в наличии</div>'?><?php }?>
+		</div>
 	   <?php if ($this->product->getPriceCalculate() <= 5000 && $product->product_price != 0 && $this->product->_label_name != 'Товара нет в наличии'){?>
 	<?php echo '<div style="font-size:21px; display:none; color:#999999;">Минимальная сумма заказа 5000 руб</div>'?>
 	<?php }?>
@@ -245,7 +264,7 @@
 	<?php if ($product->product_price !=0){?>
 	<div class="prod_price">
         <div style="width: 100%;">
-		<div class="top_block_price"><span class="block_priceL">Ваша цена:</span><span itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" id="block_price"><span itemprop="price"><?php print formatprice($this->product->getPriceCalculate())?><?php print $this->product->_tmp_var_price_ext;?></span><span><meta itemprop="priceCurrency" content="RUB"></span></span>
+		<div class="top_block_price"><span class="block_priceL">Ваша цена:</span><span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" id="block_price"><span itemprop="price"><?php print formatprice($this->product->getPriceCalculate())?><?php print $this->product->_tmp_var_price_ext;?></span><span><meta itemprop="priceCurrency" content="RUB"></span></span>
 		</div>
 						<?php if ($this->product->product_is_add_price){?>
      <div class="price_prod_qty_list">
@@ -283,28 +302,28 @@
 	</div>
     <?php }?>
 		</div>
+			<div style="margin: 0px; text-align: center; line-height: 40px;">
+				  <div class="prod_qty">
+                 
+                  </div>
+                  <div class="prod_qty_input">
+                  <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" value="<?php print $this->default_count_product?>" /><?php print $this->_tmp_qty_unit;?>
+                  </div> 
+				<div style="width:100%; clear:both;"></div>
+				</div> 
 		<?php if (!$this->hide_buy){?>                         
          <?php if ($product->product_price !=0 ) {?> 
 		<?php print $this->product->_tmp_var_price_ext;?>
 		<div style="">
 		<?php print $this->_tmp_product_html_after_click_buttons;?>
-		<input type="submit" class="button_buy" title="Добавить товар в корзину" value="<?php echo _JSHOP_ADD_TO_CART?>" onclick="jQuery('#to').val('cart');" />
+		<input type="submit" class="button_buy" title="В корзину" value="<?php echo _JSHOP_ADD_TO_CART?>" onclick="jQuery('#to').val('cart');" />
 		<div class="buttons">            
                 <div style="" abbr class="jcetooltip" title="Заполните форму заявки и наши менеджеры свяжутся с вами."><input type="button" class="b1c" value="Нашли дешевле? Снизим цену!" ></div>
                 <?php print $this->_tmp_product_html_buttons;?>
             </div>
 		</div>
         <?php }?>
-        <?php }?>
-		<div style="margin: 0px; text-align: center; line-height: 40px;">
-				  <div class="prod_qty">
-                  <?php echo _JSHOP_QUANTITY?>:&nbsp;
-                  </div>
-                  <div class="prod_qty_input">
-                  <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" value="<?php print $this->default_count_product?>" /><?php print $this->_tmp_qty_unit;?>
-                  </div> 
-				<div style="width:100%; clear:both;"></div>
-				</div> 			
+        <?php }?>			
 		</div> 
     <div style="width:100%; clear:both;"></div>	
 	<?php if ($this->product->product_manufacturer_id ==1301){?>
@@ -323,20 +342,6 @@
         ?>
 	</div>
 	    	    <div id="my_gar_fon">
-        <div class="deliverytime">
-		<?php if ($this->product->_label_name == 'Товара нет в наличии'  || $product->product_price ==0 || $this->product->delivery_time != '' || $this->product->_label_name == 'Скоро в продаже' ){?>
-		<?php if ( $this->product->delivery_time == '30 дней' || $this->product->_label_name == 'Скоро в продаже' ){?>
-		<?php echo'<div class="tovar_nalichie_deliver_zakaz">ПРЕДЗАКАЗ</div>' ?>
-		<?php } else { ?>
-		<?php if ($this->product->product_manufacturer_id == '88'){?>
-		<?php echo'<div class="tovar_nalichie_deliver">Товар в наличии</div>'?>
-		<?php } else { ?>
-		<?php echo'<div class="tovar_nalichie_deliver_zakaz">Под заказ</div>' ?>
-		<?php }?>
-		<?php }?>
-		<?php } else { ?>
-		<?php echo'<div class="tovar_nalichie_deliver">Товар в наличии</div>'?><?php }?>
-		</div>
 		<?php 
 		$document   = JFactory::getDocument();
 		$renderer   = $document->loadRenderer('modules');
@@ -623,26 +628,8 @@
 		<?php }?>
 		   <?php print $this->_tmp_product_html_before_related; include(dirname(__FILE__)."/related.php");?>
 	      </div>
-          <section id="demo">
-		  <article>
 		  <?php print $this->product->description; ?>
-          </article>
-
-<div id="tab-har" class="tab-content-left">
-<div style="font-weight: bold; margin: 20px 0;">Характеристики  <?php print $this->product->name?>:</div>
-<div class="har-lite">
-          <article><?php print $this->product->haracter; ?></article>
-		  <script src="/templates/elektro/js/readmore.js"></script>
-	<script>
-		jQuery('article').readmore({
-			maxHeight: 140,
-			moreLink: '<a class="desc-pol" href="#">Показать больше</a>',
-			lessLink: '<a class="desc-pol" href="#">Скрыть</a>'
-		});
-	</script>
-</div>
-</div>
-</section>
+         
 <?php if (($category_id == '697')&&($this->product->product_manufacturer_id == '50')){?>
     <?php 
 		$document   = JFactory::getDocument();
@@ -740,6 +727,7 @@ if ($category_id == '16' ) : ?>
     <?php }?>
 <dd>
 <div class="tab-content">
+
 <div id="tab-har" class="tab-content-left">
 <?php print $this->product->haracter; ?>
 </div>
@@ -753,6 +741,7 @@ if ($category_id == '16' ) : ?>
         ?>
 		<?php }?>
     </div>
+	
 </div>
 </dd>
 <?php if ($this->product->komplect){?>  
@@ -860,7 +849,7 @@ if ($this->product->product_manufacturer_id == '51' ) : ?>
 </div>
 </dd>
 <?php endif; ?>	
-<dt>Отзывы</dt>
+<dt><?php print sprintf(_JSHOP_X_COMENTAR, $this->product->reviews_count);?></dt>
 <dd>
 <div class="tab-content">
 <?php print $this->_tmp_product_html_before_review; include(dirname(__FILE__)."/review.php");?>	

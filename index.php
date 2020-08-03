@@ -150,16 +150,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 ?>
                 <div id="top_menu" <?= $style ?> >
-                    <jdoc:include type="modules" name="elektro-topmenu" style="container" />
                     <?php
-
-
-
-                    if ($controller == 'product') { ?>
-                        <noindex>
-                            <jdoc:include type="modules" name="elektro-topmenu" style="container" />
-                        </noindex>
-                    <?php }?>
+                    if ($controller != 'product') { ?>
+                        <jdoc:include type="modules" name="elektro-topmenu" style="container" />
+                    <?php
+                    }?>
                 </div>
             </div>
 
