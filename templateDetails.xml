@@ -10,6 +10,7 @@
 	<version>1.1.2</version>
 	<description>TPL_elektro_XML_DESCRIPTION</description>
 	<files>
+		<folder>assets</folder>
 		<folder>css</folder>
 		<folder>html</folder>
 		<folder>images</folder>

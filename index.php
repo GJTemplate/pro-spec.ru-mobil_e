@@ -143,20 +143,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             {
                 $style = ' style="width:100%;" ' ;
             }#END IF
+
+
             ?>
+
+
+            <?php # MENU -  Модуль  mod_myod_jshopping_cat ?>
             <div id="blockBest50">КАТАЛОГ ТОВАРОВ</div>
             <div id="divId" style="display: none">
-                <?php
-
-                ?>
                 <div id="top_menu" <?= $style ?> >
-                    <?php
-                    if ($controller != 'product') { ?>
-                        <jdoc:include type="modules" name="elektro-topmenu" style="container" />
-                    <?php
-                    }?>
+                    <jdoc:include type="modules" name="elektro-topmenu" style="container" />
                 </div>
             </div>
+
 
 			<jdoc:include type="modules" name="position-1" style="container" />
 		<?php

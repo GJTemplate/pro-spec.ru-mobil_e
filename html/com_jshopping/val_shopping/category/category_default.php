@@ -1,7 +1,7 @@
 <?php defined( '_JEXEC' ) or die();
-$pathCss = JPATH_THEMES . '/elektro/assets/css/com_jshopping.category.critical.css' ;
+$pathScript = JPATH_THEMES . '/elektro/assets/css/com_jshopping.category.critical.css' ;
 $params = [ 'debug' => true ,] ;
-\GNZ11\Document\Document::addIncludeStyleDeclaration( $pathCss , $params ) ;
+\GNZ11\Document\Document::addIncludeStyleDeclaration( $pathScript , $params ) ;
 
 
 

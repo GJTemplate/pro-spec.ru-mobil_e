@@ -5,6 +5,7 @@
 $document   =   JFactory::getDocument();
 $doc   =   \Joomla\CMS\Factory::getDocument();
 
+$doc->addStyleSheet(JUri::root().'templates/mobil_e/assets/css/product/product.css');
 
 $renderer   = $doc->loadRenderer('modules');
 
@@ -324,16 +325,22 @@ $renderer   = $doc->loadRenderer('modules');
                   </div> 
 				<div style="width:100%; clear:both;"></div>
 				</div> 
-		<?php if (!$this->hide_buy){?>                         
-         <?php if ($product->product_price !=0 ) {?> 
-		<?php print $this->product->_tmp_var_price_ext;?>
+		<?php
+        if (!$this->hide_buy){
+            if ($product->product_price !=0 ) {
+                print $this->product->_tmp_var_price_ext;?>
 		<div style="">
-		<?php print $this->_tmp_product_html_after_click_buttons;?>
-		<input type="submit" class="button_buy" title="В корзину" value="<?php echo _JSHOP_ADD_TO_CART?>" onclick="jQuery('#to').val('cart');" />
-		<div class="buttons">            
-                <div style="" abbr class="jcetooltip" title="Заполните форму заявки и наши менеджеры свяжутся с вами."><input type="button" class="b1c" value="Нашли дешевле? Снизим цену!" ></div>
+		    <?php print $this->_tmp_product_html_after_click_buttons;?>
+		    <input type="submit" class="button_buy" title="В корзину" value="<?php echo _JSHOP_ADD_TO_CART?>" onclick="jQuery('#to').val('cart');" />
+
+
+
+            <div class="buttons">
+                <?= \Joomla\CMS\Layout\LayoutHelper::render('product.get_discount', [] ); ?>
+
                 <?php print $this->_tmp_product_html_buttons;?>
             </div>
+
 		</div>
         <?php }?>
         <?php }?>			
@@ -630,266 +637,353 @@ $renderer   = $doc->loadRenderer('modules');
 
 <!--/верх-->
 <div class="full-desc">
-<dl class="tabs">
-<dt class="selected">Описание</dt>
-<dd class="selected">
-<div class="tab-content">
-<div style="width:100%; clear:both;"></div>
-<div id="bottom_karta">
-         <?php if (count($this->related_prod)){?>
-		<div class="vmest1">Вместе с товаром покупают</div>
-		<?php }?>
-		   <?php print $this->_tmp_product_html_before_related; include(dirname(__FILE__)."/related.php");?>
-	      </div>
-		  <?php print $this->product->description; ?>
-         
-<?php if (($category_id == '697')&&($this->product->product_manufacturer_id == '50')){?>
-    <?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'karta_iridium';
-        echo $renderer->render($position, $options, null);
-        ?>
-<?php }?>
-<?php if (($category_id == '64')&&($this->product->product_manufacturer_id == '696')){?>
-    <?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'karta_yunso';
-        echo $renderer->render($position, $options, null);
-        ?>
-<?php }?>
-<?php if ($this->product->product_id%2){?>
- <?php echo 'Покупая '?><span class="text-name"><?php if ($this->product->seoname){ ?><?php print $this->product->seoname?><?php } else { ?><?php print $this->product->name?><?php } ?></span><?php echo ' в нашем интернет-магазине, вы можете рассчитывать на бесплатную доставку по Москве.';?>
-<?php }else{?>
-<?php echo 'Купив '?><span class="text-name"><?php if ($this->product->seoname){ ?><?php print $this->product->seoname?><?php } else { ?><?php print $this->product->name?><?php } ?></span><?php echo ' в нашем интернет-магазине, вы можете рассчитывать на бесплатную доставку по Москве.';?>
- <?php }?>
-<?php 
-$controller = JRequest::getVar('controller', null);
-$category_id = JRequest::getVar('category_id', null);
-if ($category_id == '374' || $category_id == '379' || $category_id == '695' || $category_id == '380' || $category_id == '381' || $category_id == '383' || $category_id == '385' || $category_id == '384' || $category_id == '382' || $category_id == '630' || $category_id == '386' || $category_id == '387' || $category_id == '390') : ?>
-<div style="width: 400px; border: 1px solid rgb(204, 204, 204); padding: 0px; margin: 40px auto 0;"><img src="/images/sertificat/vertex-sertificat.png" alt="СпеТехКонсалтинг Сертификат Vertex Standard" title="СпеТехКонсалтинг Сертификат Vertex Standard">
-</div>                                            
- <?php endif; ?>
-<?php 
-if ($this->product->product_manufacturer_id == '34' ) : ?>
-  <div style="width: 220px; margin: 0px auto;"><a rel="simplebox" href="/images/sertificat/009.png">
-<img src="/images/sertificat/009.png" style="width: 200px; height: 283px;"></a>
- </div>                              
- <?php endif; ?>
+    <dl class="tabs">
+        <dt class="">Описание</dt>
+        <dd class="">
+            <div class="tab-content">
+                <div style="width:100%; clear:both;"></div>
+                <div id="bottom_karta">
+                    <?php
+                    if( count($this->related_prod) ){ ?>
+                        <div class="vmest1">Вместе с товаром покупают</div>
+                    <?php
+                    } ?>
+                    <?php
+                    print $this->_tmp_product_html_before_related;
+                    include(dirname(__FILE__) . "/related.php"); ?>
+                </div>
+                <?php
+                print $this->product->description; ?>
 
-<div style="font-size:12px; color:red; margin:5px 0;">
-        <noindex>
-        <noindex>
-		<?php 
-$controller = JRequest::getVar('controller', null);
-$category_id = JRequest::getVar('category_id', null);
-if ($category_id == '16' ) : ?>
-<div style="">* Акция действует не на все модели.
-</div>                                            
- <?php endif; ?>
-		</noindex>
-        </div>
-		<div class = "jshop_prod_description">
-<div style="width:100%; clear:both; margin:20px 0 0;"></div>
-<?php if (!($this->product->haracter)){?>  
-<?php 
-           $controller = JRequest::getVar('controller', null);
-           $category_id = JRequest::getVar('category_id', null);
-           if (!($category_id == '858' || $category_id == '859' || $category_id == '893' || $category_id == '1060' || $category_id == '1179')) {?>
-<?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'komplekt_bottom';
-        echo $renderer->render($position, $options, null);
-        ?>
-<?php }?>
-<?php }?>
-</div>
-</div>
- 	
-</dd>
-<?php if (count($this->attributes)) {?>
-<dt>Опции</dt>
-<?php }?>
-<dd>
-<div class="tab-content">
-	<div class="jshop_prod_attributes">
-        <table style="margin: 0px; padding: 0px 5px; width: auto;">
-        <?php foreach($this->attributes as $attribut){?>
-        <tr>
-            <td class="attributes_title">
-                <span style="margin: 0px; vertical-align: sub; font-size: 14px;"><?php print $attribut->attr_name?>:</span>
-            </td>
-            <td style="padding: 3px 10px 0px ! important;">
-                <span id='block_attr_sel_<?php print $attribut->attr_id?>'>
-                <?php print $attribut->selects?>
+                <?php
+                if( ($category_id == '697') && ($this->product->product_manufacturer_id == '50') ){ ?>
+                    <?php
+                    $document = JFactory::getDocument();
+                    $renderer = $document->loadRenderer('modules');
+                    $options = array('style' => 'xhtml');
+                    $position = 'karta_iridium';
+                    echo $renderer->render($position, $options, null);
+                    ?>
+                <?php
+                } ?>
+                <?php
+                if( ($category_id == '64') && ($this->product->product_manufacturer_id == '696') ){ ?>
+                    <?php
+                    $document = JFactory::getDocument();
+                    $renderer = $document->loadRenderer('modules');
+                    $options = array('style' => 'xhtml');
+                    $position = 'karta_yunso';
+                    echo $renderer->render($position, $options, null);
+                    ?>
+                <?php
+                } ?>
+                <?php
+                if( $this->product->product_id % 2 ){ ?>
+                    <?php
+                    echo 'Покупая ' ?><span class="text-name"><?php
+                    if( $this->product->seoname ){ ?><?php
+                        print $this->product->seoname ?><?php
+                    } else { ?><?php
+                        print $this->product->name ?><?php
+                    } ?></span><?php
+                    echo ' в нашем интернет-магазине, вы можете рассчитывать на бесплатную доставку по Москве.'; ?>
+                <?php
+                } else { ?>
+                    <?php
+                    echo 'Купив ' ?><span class="text-name"><?php
+                    if( $this->product->seoname ){ ?><?php
+                        print $this->product->seoname ?><?php
+                    } else { ?><?php
+                        print $this->product->name ?><?php
+                    } ?></span><?php
+                    echo ' в нашем интернет-магазине, вы можете рассчитывать на бесплатную доставку по Москве.'; ?>
+                <?php
+                } ?>
+                <?php
+                $controller = JRequest::getVar('controller', null);
+                $category_id = JRequest::getVar('category_id', null);
+                if( $category_id == '374' || $category_id == '379' || $category_id == '695' || $category_id == '380' || $category_id == '381' || $category_id == '383' || $category_id == '385' || $category_id == '384' || $category_id == '382' || $category_id == '630' || $category_id == '386' || $category_id == '387' || $category_id == '390' ) : ?>
+                    <div style="width: 400px; border: 1px solid rgb(204, 204, 204); padding: 0px; margin: 40px auto 0;">
+                        <img src="/images/sertificat/vertex-sertificat.png"
+                             alt="СпеТехКонсалтинг Сертификат Vertex Standard"
+                             title="СпеТехКонсалтинг Сертификат Vertex Standard">
+                    </div>
+                <?php
+                endif; ?>
+                <?php
+                if( $this->product->product_manufacturer_id == '34' ) : ?>
+                    <div style="width: 220px; margin: 0px auto;"><a rel="simplebox" href="/images/sertificat/009.png">
+                            <img src="/images/sertificat/009.png" style="width: 200px; height: 283px;"></a>
+                    </div>
+                <?php
+                endif; ?>
+
+                <div style="font-size:12px; color:red; margin:5px 0;">
+                    <noindex>
+                        <noindex>
+                            <?php
+                            $controller = JRequest::getVar('controller', null);
+                            $category_id = JRequest::getVar('category_id', null);
+                            if( $category_id == '16' ) : ?>
+                                <div style="">* Акция действует не на все модели.
+                                </div>
+                            <?php
+                            endif; ?>
+                        </noindex>
+                </div>
+                <div class="jshop_prod_description">
+                    <div style="width:100%; clear:both; margin:20px 0 0;"></div>
+                    <?php
+                    if( !($this->product->haracter) ){ ?>
+                        <?php
+                        $controller = JRequest::getVar('controller', null);
+                        $category_id = JRequest::getVar('category_id', null);
+                        if( !($category_id == '858' || $category_id == '859' || $category_id == '893' || $category_id == '1060' || $category_id == '1179') )
+                        { ?>
+                            <?php
+                            $document = JFactory::getDocument();
+                            $renderer = $document->loadRenderer('modules');
+                            $options = array('style' => 'xhtml');
+                            $position = 'komplekt_bottom';
+                            echo $renderer->render($position, $options, null);
+                            ?>
+                        <?php
+                        } ?>
+                    <?php
+                    } ?>
+                </div>
+            </div>
+
+        </dd>
+        <?php
+        if( count($this->attributes) ){ ?>
+            <dt>Опции</dt>
+        <?php
+        } ?>
+        <dd>
+            <div class="tab-content">
+                <div class="jshop_prod_attributes">
+                    <table style="margin: 0px; padding: 0px 5px; width: auto;">
+                        <?php
+                        foreach ($this->attributes as $attribut) { ?>
+                            <tr>
+                                <td class="attributes_title">
+                                    <span style="margin: 0px; vertical-align: sub; font-size: 14px;"><?php
+                                        print $attribut->attr_name ?>:</span>
+                                </td>
+                                <td style="padding: 3px 10px 0px ! important;">
+                <span id='block_attr_sel_<?php
+                print $attribut->attr_id ?>'>
+                <?php
+                print $attribut->selects ?>
                 </span>
-            </td>
-        </tr>
-        <?php }?>
-        </table>
+                                </td>
+                            </tr>
+                        <?php
+                        } ?>
+                    </table>
+                </div>
+            </div>
+        </dd>
+        <?php
+        if( $this->product->haracter ){ ?>
+            <dt>Характеристики</dt>
+        <?php
+        } ?>
+        <dd>
+            <div class="tab-content">
+
+                <div id="tab-har" class="tab-content-left">
+                    <?php
+                    print $this->product->haracter; ?>
+                </div>
+                <div style="clear: both;"><?php
+                    if( $this->product->haracter ){ ?>
+                        <?php
+                        $document = JFactory::getDocument();
+                        $renderer = $document->loadRenderer('modules');
+                        $options = array('style' => 'xhtml');
+                        $position = 'komplekt_bottom';
+                        echo $renderer->render($position, $options, null);
+                        ?>
+                    <?php
+                    } ?>
+                </div>
+
+            </div>
+        </dd>
+        <?php
+        if( $this->product->komplect ){ ?>
+            <dt>Комплектация</dt>
+        <?php
+        } ?>
+        <dd>
+            <div class="tab-content">
+                <div class="tab-content-left">
+                    <?php
+                    print $this->product->komplect; ?>
+                </div>
+
+                <div style="clear: both;"><?php
+                    $document = JFactory::getDocument();
+                    $renderer = $document->loadRenderer('modules');
+                    $options = array('style' => 'xhtml');
+                    $position = 'komplekt_bottom';
+                    echo $renderer->render($position, $options, null);
+                    ?>
+                </div>
+                <div style="clear: both; width:100%;"></div>
+            </div>
+
+        </dd>
+
+        <?php
+        if( $this->demofiles ){ ?>
+            <dt>Документация</dt>
+        <?php
+        } ?>
+        <dd>
+            <div class="tab-content">
+                <div class="tab-content-left">
+                    <div style="color: rgb(51, 51, 51); text-align: center; font-size: 20px;"><?php
+                        echo 'Документация на ' ?><span style="text-transform: lowercase; font-size: 20px !important;"><?php
+                            if( $this->product->seoname ){ ?><?php
+                                print $this->product->seoname ?><?php
+                            } else { ?><?php
+                                print $this->product->name ?><?php
+                            } ?></span></div>
+                    <?php
+                    print $this->_tmp_product_html_before_demofiles; ?>
+                    <div id="list_product_demofiles"><?php
+                        include(dirname(__FILE__) . "/demofiles.php"); ?></div>
+                </div>
+                <div style="clear: both; width:100%;"></div>
+            </div>
+        </dd>
+
+        <?php
+        if( count($this->videos) ){ ?>
+            <dt>Видео</dt>
+        <?php
+        } ?>
+        <?php
+        if( count($this->videos) ){ ?>
+            <dd>
+                <div class="tab-content">
+                    <div class="tab-content-left">
+                        <div style="color:#333333; text-align:center;"><h3><?php
+                                echo 'Видео ' ?><?php
+                                if( $this->product->seoname ){ ?><?php
+                                    print $this->product->seoname ?><?php
+                                } else { ?><?php
+                                    print $this->product->name ?><?php
+                                } ?></h3></div>
+                        <div class="yt-block">
+                            <?php
+                            if( count($this->videos) ){ ?>
+                                <?php
+                                foreach ($this->videos as $k => $video) { ?>
+                                    <?php
+                                    if( $video->video_code ){ ?>
+                                        <div class="yt-block-ins">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php
+                                            echo $video->video_code ?>" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    <?php
+                                    } ?>
+                                <?php
+                                } ?>
+                            <?php
+                            } ?>
+                        </div>
+                    </div>
+                    <div style="clear: both; width:100%;"></div>
+                </div>
+            </dd>
+        <?php
+        } ?>
+        <?php
+        if( $renderer->render('uslugi_karta') ){ ?>
+            <dt>Услуги</dt>
+        <?php
+        } ?>
+        <dd>
+            <div class="tab-content">
+                <div class="tab-content-left">
+                    <?php
+                    $document = JFactory::getDocument();
+                    $renderer = $document->loadRenderer('modules');
+                    $options = array('style' => 'xhtml');
+                    $position = 'uslugi_karta';
+                    echo $renderer->render($position, $options, null);
+                    ?>
+                </div>
+
+
+                <div style="clear: both; width:100%;"></div>
+                <?php
+                if( $this->product->_label_name != 'Товара нет в наличии' ){ ?>
+                    <div id="karta_zakaz">
+                        <?php
+                        $document = JFactory::getDocument();
+                        $renderer = $document->loadRenderer('modules');
+                        $options = array('style' => 'xhtml');
+                        $position = 'karta_zakaz';
+                        echo $renderer->render($position, $options, null);
+                        ?>
+                    </div>
+                <?php
+                } ?>
+                <div style="clear: both; width:100%;"></div>
+            </div>
+        </dd>
+        <?php
+        if( $this->product->product_manufacturer_id == '51' ) : ?>
+            <dt>Зона покрытия</dt>
+            <dd>
+                <div class="tab-content">
+                    <?php
+                    $document = JFactory::getDocument();
+                    $renderer = $document->loadRenderer('modules');
+                    $options = array('style' => 'xhtml');
+                    $position = 'zona_thurya';
+                    echo $renderer->render($position, $options, null);
+                    ?>
+                </div>
+            </dd>
+        <?php
+        endif; ?>
+        <dt><?php
+            print sprintf(_JSHOP_X_COMENTAR, $this->product->reviews_count); ?></dt>
+        <dd>
+            <div class="tab-content">
+                <?php
+                print $this->_tmp_product_html_before_review;
+                include(dirname(__FILE__) . "/review.php"); ?>
+            </div>
+        </dd>
+
+        <script type="text/javascript">
+            jQuery(function () {
+                jQuery('dl.tabs dt').click(function () {
+                    jQuery(this)
+                        .siblings().removeClass('selected').end()
+                        .next('dd').andSelf().addClass('selected');
+                });
+            });
+        </script>
+    </dl>
+    <div class="button_back" style="z-index:1000000;">
+        <?php
+        $category_id = JRequest::getInt('category_id');
+        $category = JTable::getInstance('category', 'jshop');
+        $category->load($category_id);
+        $lang = JSFactory::getLang();
+        $name_field = $lang->get('name');
+        $link_button = SEFLink('index.php?option=com_jshopping&controller=category&task=view&category_id=' . $category_id, 1);
+        print '<a href="' . $link_button . '">' . ' Все товары в категории ' . $category->$name_field . '</a>';
+        ?>
     </div>
-</div>
-</dd>
-<?php if ($this->product->haracter){?>  
-<dt>Характеристики</dt>
-    <?php }?>
-<dd>
-<div class="tab-content">
-
-<div id="tab-har" class="tab-content-left">
-<?php print $this->product->haracter; ?>
-</div>
-    <div style="clear: both;"><?php if ($this->product->haracter){?>  
-	<?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'komplekt_bottom';
-        echo $renderer->render($position, $options, null);
-        ?>
-		<?php }?>
-    </div>
-	
-</div>
-</dd>
-<?php if ($this->product->komplect){?>  
-<dt>Комплектация</dt>
-    <?php }?>
-<dd>
-<div class="tab-content">
-<div class="tab-content-left">
-<?php print $this->product->komplect; ?>
-</div>
-
-<div style="clear: both;"><?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'komplekt_bottom';
-        echo $renderer->render($position, $options, null);
-        ?>
-</div><div style="clear: both; width:100%;"> </div>		
-</div>
-
-</dd>
-
-<?php if ($this->demofiles){?>  
-<dt>Документация</dt>
-    <?php }?>
-<dd>
-<div class="tab-content">
-<div class="tab-content-left">
-<div style="color: rgb(51, 51, 51); text-align: center; font-size: 20px;"><?php echo'Документация на '?><span style="text-transform: lowercase; font-size: 20px !important;"><?php if ($this->product->seoname){ ?><?php print $this->product->seoname?><?php } else { ?><?php print $this->product->name?><?php } ?></span></div>
-<?php print $this->_tmp_product_html_before_demofiles; ?>
-<div id="list_product_demofiles"><?php include(dirname(__FILE__)."/demofiles.php");?></div>
-</div>
-<div style="clear: both; width:100%;"> </div>
-</div>
-</dd>
-
-<?php if (count($this->videos)){?> 
-<dt>Видео</dt>
-    <?php }?>
-<?php if (count($this->videos)){?> 
-<dd>
-<div class="tab-content">
-<div class="tab-content-left">
-<div style="color:#333333; text-align:center;"><h3><?php echo'Видео '?><?php if ($this->product->seoname){ ?><?php print $this->product->seoname?><?php } else { ?><?php print $this->product->name?><?php } ?></h3></div>
-<div class="yt-block">
-   <?php if (count($this->videos)){?>
-      <?php foreach($this->videos as $k=>$video){?>
-         <?php if ($video->video_code) { ?>
-            <div class="yt-block-ins">
-			   <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video->video_code?>" frameborder="0" allowfullscreen></iframe>
-			</div>
-         <?php } ?>
-      <?php } ?>
-   <?php }?>
-</div>
-</div>
-<div style="clear: both; width:100%;"> </div>
-</div>
-</dd>
-<?php }?>
-<?php if ($renderer->render('uslugi_karta')){?>  
-<dt>Услуги</dt>
-<?php }?>
-<dd>
-<div  class="tab-content">
-<div class="tab-content-left">
-	<?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'uslugi_karta';
-        echo $renderer->render($position, $options, null);
-        ?>
-</div>	
-
-
-<div style="clear: both; width:100%;"> </div>	
-<?php if ($this->product->_label_name != 'Товара нет в наличии'){?>
-		<div id="karta_zakaz">
-		<?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'karta_zakaz';
-        echo $renderer->render($position, $options, null);
-        ?>
-		</div>
-		<?php }?>
-<div style="clear: both; width:100%;"> </div>		
-</div>
-</dd>
-<?php 
-if ($this->product->product_manufacturer_id == '51' ) : ?>
-<dt>Зона покрытия</dt>
-<dd>
-<div class="tab-content">
-	<?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'zona_thurya';
-        echo $renderer->render($position, $options, null);
-        ?>
-</div>
-</dd>
-<?php endif; ?>	
-<dt><?php print sprintf(_JSHOP_X_COMENTAR, $this->product->reviews_count);?></dt>
-<dd>
-<div class="tab-content">
-<?php print $this->_tmp_product_html_before_review; include(dirname(__FILE__)."/review.php");?>	
-</div>
-</dd>
-
-  <script type="text/javascript"> 
-  jQuery(function(){
-jQuery('dl.tabs dt').click(function(){
-jQuery(this)
-.siblings().removeClass('selected').end()
-.next('dd').andSelf().addClass('selected');
-});
-});
-  </script> 
-  </dl>
-<div class="button_back" style="z-index:1000000;">
- <?php 
-            $category_id = JRequest::getInt('category_id');
-			$category = JTable::getInstance('category', 'jshop');        
-			$category->load($category_id);
-			$lang = JSFactory::getLang();
-			$name_field = $lang->get('name');
-			$link_button = SEFLink('index.php?option=com_jshopping&controller=category&task=view&category_id='.$category_id, 1);
-            print '<a href="'.$link_button.'">'.' Все товары в категории '.$category->$name_field.'</a>';
-        ?>
-</div>  
 </div>
 		 <?php
 if ($this->config->product_show_button_back){?>

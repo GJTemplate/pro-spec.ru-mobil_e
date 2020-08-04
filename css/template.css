@@ -979,9 +979,7 @@ ul.joomla-nav_topmenu li a:hover {
     border-radius: 7px;
     padding: 0;
 }
-#my_opisanie p, #my_opisanie div {
-    font-family: 'GT Eesti Pro',tahoma;
-}
+
 .jshop_filters {
     margin: 10px 0;
 }
@@ -1457,7 +1455,7 @@ ul.joomla-nav_topmenu li a:hover {
     padding: 0px;
 }
 .breadcrumbs ul{
-	margin:0; 
+	margin:0;
 	padding:0 5px;
 }
 .breadcrumbs a{
@@ -2273,7 +2271,7 @@ ul.joomla-nav_topmenu li a:hover {
 }
 .jshop {
     background: #fff none repeat scroll 0 0;
-    padding: 5px 0 0;
+    /* padding: 5px 0 0; */
     /* border-left: 0.1px solid #bbb; */
 }
 #top_descriptin {
@@ -2616,6 +2614,7 @@ div#nextend-accordion-menu-290 {
 }
 .image_fon {
     overflow: hidden;
+    max-height: 350px;
 }
 #lightbox-container-image img {
     max-width: 280px;
@@ -2643,6 +2642,10 @@ div#nextend-accordion-menu-290 {
 }
 .jshop h1 {
     text-align: center;
+}
+.full-desc{
+    
+border-top: 1px solid #ccc;
 }
 .tabs {
     margin: 0;
@@ -3222,7 +3225,8 @@ div.b1c-close {
 }
 
 .prod_price >div {
-    /* height: 860px; */
+
+/* height: 860px; */
 }
 
 .prod_price {}
@@ -3289,7 +3293,7 @@ div.b1c-close {
 }
 #price_tovar img{
 	width: 100px;
-	
+
 }
 #bottom_karta{
 	display:none;
@@ -3819,7 +3823,7 @@ div.contactus-lightbox-closer > i {
 #product_bonus_add span {
     float: right;
     font-size: 16px;
-    color: 
+    color:
     rgb(255, 126, 3);
     font-weight: 900;
 }
@@ -3860,11 +3864,11 @@ div.contactus-lightbox-closer > i {
 #my_opisanie, .image_middle {
 	clear: both;
 	float: left;
-	overflow: hidden;
-	max-height: 350px;
+	/* overflow: hidden; */
+	/* max-height: 360px; */
 }
 #my_opisanie_fon .btn-info, .mainblock .btn-info{
-	
+
 }
 .text_zoom{
 	display:none;
@@ -4041,7 +4045,7 @@ div.contactus-lightbox-closer > i {
 	padding: 0 10px;
 }
 .sblock5.jshop_categ.category a{
-	
+
 	font-size:16px;
 	color:#e02a2f;
 	text-decoration:none;
@@ -4187,9 +4191,9 @@ div.contactus-lightbox-closer > i {
 	overflow-x: auto;
 }
 .product_diler {
-	position: absolute; 
-	top: 400px;  
-	right: 10px; 
+	position: absolute;
+	top: 400px;
+	right: 10px;
 	width: 50px;
 }
 .block_sorting_count_to_page{display:none;}
