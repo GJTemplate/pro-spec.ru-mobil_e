@@ -1,9 +1,3 @@
-
-
-* {
-    margin: 0;
-    padding: 0;
-}
 @font-face {
     font-family: 'GT Eesti Pro';
     src: local('/style/GT Eesti Pro Display Light'), local('GT-Eesti-Pro-Display-Light'),
@@ -13,9 +7,7 @@
     font-weight: 300;
     font-style: normal;
   }
-  body {
-    font-family: 'GT Eesti Pro',sans-serif;
-}
+
 .blog-featured h2 {
     font-size: 1.5em;
     margin-bottom: 0;
@@ -149,9 +141,12 @@ ul.joomla-nav_topmenu li a:hover {
     font-size: 14px;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 10px 0;
+
     width: auto;
 }
+
 .rifht {
     margin: 0;
     padding: 0;
@@ -1244,10 +1239,7 @@ ul.joomla-nav_topmenu li a:hover {
 #elektro_logo img {
     width: 100%;
 }
-* {
-    margin: 0;
-    padding: 0;
-}
+
 .blog-featured h2 {
     font-size: 1.5em;
     margin-bottom: 0;
@@ -1387,13 +1379,7 @@ ul.joomla-nav_topmenu li a:hover {
     position: relative;
     width: 27%;
 }
-.center {
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
-    padding: 10px 0;
-    width: auto;
-}
+
 .rifht {
     margin: 0;
     padding: 0;
@@ -2611,6 +2597,7 @@ div#nextend-accordion-menu-290 {
 }
 .my_foto {
     text-align: center;
+    min-height: 408px;
 }
 .image_fon {
     overflow: hidden;
@@ -2933,13 +2920,7 @@ div#nextend-accordion-menu-288 {
     text-transform: uppercase;
     width: 220px;
 }
-div.b1c-close {
-    float: right;
-    margin: 10px 10px 0 0;
-    padding: 0;
-    position: relative;
-    width: 15px;
-}
+ 
 #category_desc {
     display: none;
 }
@@ -3324,9 +3305,7 @@ div.b1c-close {
 .mainTodayDiscount {
 	display: none !important;
 }
-.b1c-form{
-	display:none;
-}
+ 
 .banner_r{
 	display:none;
 }
@@ -3654,24 +3633,7 @@ img{
 .tab-content-left td, .tab-content-left tr {
     padding: 10px;
 }
-.offerta {
-    background: url(/templates/elektro/img/offer16.png) no-repeat left;
-    padding: 0;
-    width: 50%;
-    float: left;
-}
-.offerta1 {
-    background: url(/templates/elektro/img/tender.png) no-repeat left;
-    padding: 0;
-    width: 50%;
-    float: left;
-}
-.offerta2 {
-    background: url(/templates/elektro/img/kp.png) no-repeat left;
-    padding: 0;
-    width: 50%;
-    float: left;
-}
+
 .offerta3 {
 	background: url(/templates/elektro/img/sravni7.png) no-repeat left;
 	padding: 0;
@@ -3686,11 +3648,13 @@ img{
 }
 .offerta4 {
 	background: url(/templates/elektro/img/wishlist-min.png) no-repeat left;
-	padding: 0;
-	width: 50%;
-	float: left;
+	/* padding: 0; */
+	/* width: 50%; */
+	/* float: left; */
 }
-#top_descriptin button.contactus-button, #top_descriptin .input-append input, .button.wishlist {
+ 
+#top_descriptin .input-append input, 
+.button.wishlist {
 	color: #000000;
 	padding: 0px 0px 0 5px;
 	border: 0;
@@ -3864,11 +3828,7 @@ div.contactus-lightbox-closer > i {
 #my_opisanie, .image_middle {
 	clear: both;
 	float: left;
-	/* overflow: hidden; */
-	/* max-height: 360px; */
-}
-#my_opisanie_fon .btn-info, .mainblock .btn-info{
-
+	 
 }
 .text_zoom{
 	display:none;
@@ -4099,9 +4059,8 @@ div.contactus-lightbox-closer > i {
     font-size: 12px;
 }
 .price_cart{display:none;}
-.oferta_top {
-	padding: 0 10px;
-}
+
+
 #akciya-deshevle {
 	background: #d52d1e none repeat scroll 0 0;
 	border-radius: 0 20px 20px 0;

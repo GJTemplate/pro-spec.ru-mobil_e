@@ -27,6 +27,13 @@ if (!defined('TEMPLATE_VERSION')){
     define('TEMPLATE_VERSION', $version );
 }
 
+# DOM PROP add tag <style />
+# Reset и Основные свойства свойств CSS
+$pathStyle = JPATH_THEMES . '/mobil_e/assets/css/critical.template.css';
+$params = ['debug' => $this->params->get('debug', false),];
+\GNZ11\Document\Document::addIncludeStyleDeclaration($pathStyle, $params);
+
+
 
 
 
@@ -53,8 +60,10 @@ JHtml::_('behavior.framework', true);
         
 		<!-- The following five lines load the Blueprint CSS Framework (http://blueprintcss.org). If you don't want to use this framework, delete these lines. -->
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/screen.css" type="text/css" media="screen, projection" />
-		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/print.css" type="text/css" media="print" />
-		<!--[if lt IE 8]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+<!--        <link rel="stylesheet" href="--><?php //echo $this->baseurl ?><!--/templates/--><?php //echo $this->template ?><!--/css/blueprint/print.css" type="text/css" media="print" />-->
+
+        <!--[if lt IE 8]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/joomla-nav/screen.css" type="text/css" media="screen" />
 		
@@ -77,8 +86,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<?php endif; ?>
         
 		<!-- The following line loads the template JavaScript file located in the template folder. It's blank by default. -->
-		<script type="text/javascript" async src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/template.js"></script>
-		<script type="text/javascript" async src="<?= $this->baseurl ?>/buyme/js/buyme.js"></script>
+<!--		<script type="text/javascript" async src="--><?php //echo $this->baseurl ?><!--/templates/--><?php //echo $this->template ?><!--/js/template.js"></script>-->
+
+
+
+<!--        <script type="text/javascript" async src="--><?//= $this->baseurl ?><!--/buyme/js/buyme.js"></script>-->
+
+
+
+
+
+
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

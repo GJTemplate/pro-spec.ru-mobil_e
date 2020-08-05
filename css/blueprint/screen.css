@@ -1,12 +1,5 @@
 
-html {
-    background: #f9f9f9 none repeat scroll 0 0;
-    border: 0 none;
-    font-size: 100.01%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+
 table {
     border-collapse: separate;
     border-spacing: 0;
@@ -100,13 +93,7 @@ p .right {
     margin: 1.5em 0 1.5em 1.5em;
     padding: 0;
 }
-a:focus, a:hover {
-    color: #09f;
-}
-a {
-    color: #06c;
-    text-decoration: underline;
-}
+
 blockquote {
     color: #666;
     font-style: italic;
@@ -825,6 +812,4 @@ hr.space {
 .clearfix, .container {
     display: block;
 }
-.clear {
-    clear: both;
-}
+

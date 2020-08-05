@@ -1,0 +1,50 @@
+/**
+DOM PROP Критичиские стили для шаблона
+ */
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 0 none;
+    font-size: 100.01%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'GT Eesti Pro',sans-serif;
+}
+/* Todo Удалить для мобильных устройств */
+a:focus, a:hover {
+    color: #09f;
+}
+a {
+    color: #06c;
+    text-decoration: underline;
+}
+.clear {
+    clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

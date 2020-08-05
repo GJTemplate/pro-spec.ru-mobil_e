@@ -1,0 +1,42 @@
+.oferta_top {
+    padding: 0 10px;
+}
+.oferta_top > div{
+    padding: 0;
+    width: 50%;
+    float: left;
+}
+.offerta {
+    background: url(/templates/elektro/img/offer16.png) no-repeat left;
+}
+.offerta1 {
+    background: url(/templates/elektro/img/tender.png) no-repeat left;
+}
+.offerta2 {
+    background: url(/templates/elektro/img/kp.png) no-repeat left;
+}
+
+#top_descriptin button {
+    /* color: #000; */
+    padding: 0 0 0 5px;
+    border: 0;
+    /* font-weight: normal; */
+    letter-spacing: 1px;
+    /* display: block; */
+    text-transform: uppercase;
+    /* height: auto; */
+    /* width: auto; */
+    /* box-sizing: border-box !important; */
+    /* -webkit-box-sizing: border-box !important; */
+    -moz-box-sizing: border-box !important;
+    /* -webkit-border-radius: 0px; */
+    -moz-border-radius: 0px;
+    /* border-radius: 0px; */
+    cursor: pointer;
+    /* text-shadow: none; */
+    background: none;
+    font-size: 10px;
+    line-height: 25px;
+    /* text-align: left; */
+    margin: 0 0 0 15px;
+}

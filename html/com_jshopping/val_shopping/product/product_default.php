@@ -1,9 +1,17 @@
 <?php defined( '_JEXEC' ) or die(); ?>
 <?php $product = $this->product?>
 <?php include(dirname(__FILE__)."/load.js.php");
-
-$document   =   JFactory::getDocument();
+$app = \Joomla\CMS\Factory::getApplication() ;
+$document   =   \Joomla\CMS\Factory::getDocument();
 $doc   =   \Joomla\CMS\Factory::getDocument();
+$template = $app->getTemplate(true);
+
+
+
+
+
+
+
 
 $doc->addStyleSheet(JUri::root().'templates/mobil_e/assets/css/product/product.css');
 
@@ -14,7 +22,8 @@ $renderer   = $doc->loadRenderer('modules');
 <!--верх-->
     <div  class="b1c-good" >
         <div id="top_descriptin">
-            <?= JLayoutHelper::render('product.oferta_top' , [] );?>
+
+            <?= \Joomla\CMS\Layout\LayoutHelper::render('product.oferta_top' , ['template' => $template ] );?>
             <!--<div class="oferta_top">
                 <div class="offerta">
                     <?php
