@@ -61,30 +61,24 @@ JHtml::_('behavior.framework', true);
 		<!-- The following five lines load the Blueprint CSS Framework (http://blueprintcss.org). If you don't want to use this framework, delete these lines. -->
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/screen.css" type="text/css" media="screen, projection" />
 
-<!--        <link rel="stylesheet" href="--><?php //echo $this->baseurl ?><!--/templates/--><?php //echo $this->template ?><!--/css/blueprint/print.css" type="text/css" media="print" />-->
+        <!--<link rel="stylesheet" href="--><?php //echo $this->baseurl ?><!--/templates/--><?php //echo $this->template ?><!--/css/blueprint/print.css" type="text/css" media="print" />-->
 
         <!--[if lt IE 8]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/joomla-nav/screen.css" type="text/css" media="screen" />
 		
-		<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TS4LFLL');</script>
-<!-- End Google Tag Manager -->
+
 
 
 		<!-- The following line loads the template CSS file located in the template folder. -->
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css" type="text/css" />
 
-		<!-- The following four lines load the Blueprint CSS Framework and the template CSS file for right-to-left languages. If you don't want to use these, delete these lines. -->
-		<?php if($this->direction == 'rtl') : ?>
-			<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/rtl/screen.css" type="text/css" />
-			<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template_rtl.css" type="text/css" />
-		<?php endif; ?>
-        
+
+
+
+
+
+
 		<!-- The following line loads the template JavaScript file located in the template folder. It's blank by default. -->
 <!--		<script type="text/javascript" async src="--><?php //echo $this->baseurl ?><!--/templates/--><?php //echo $this->template ?><!--/js/template.js"></script>-->
 
@@ -94,22 +88,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-
-
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-47068506-1', 'pro-spec.ru');
-  ga('send', 'pageview');
-
-</script>
 <!--<script type="text/javascript" src="//code.jquery.com/jquery-latest.js"></script>-->
-<script src="https://pro-spec.ru/modules/mod_jsfilter/assets/jsfilter.js" type="text/javascript"></script>
+<script src="<?php echo $this->baseurl ?>/modules/mod_jsfilter/assets/jsfilter.js" type="text/javascript"></script>
 <script type="text/javascript">
 var __cs = __cs || [];
 __cs.push(["setCsAccount", "vkDFcfw7_uRq5WubZ2cUvY6S7g54gpgM"]);
@@ -198,17 +178,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<?php endif; ?>
 	       </div>	
 	 	   
-		<?php if($this->countModules('elektro-center_top') ) : ?>
+		<?php
+        if($this->countModules('elektro-center_top') ) : ?>
 				<div class="elektro-center_top">
 	  	 			<jdoc:include type="modules" name="elektro-center_top" style="none" />
 				</div>
 				<div style="clear: both;  height: 1px; margin: 0px;"></div>
-			<?php endif;
+			<?php
+        endif; ?>
 
-
-
-			?>
-		<div id="content-elektro" class=""> 
+    <div id="content-elektro" class="">
         	<?php
             $positionArr = [
                 'mainbody_center1' , 
@@ -255,15 +234,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>			
 				</div>
 <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-            <?php endif; ?>
+            <?php endif;
 
-
-
-
-
-
-
-            <?php
             $positionArr = ['mobile_left', 'product', 'cart', 'checkout',];
             $style = ( $this->countModules( implode(' or ' , $positionArr ))?'style="width: 73.6%; float: left;"':null ) ;
             ?>
@@ -298,7 +270,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<?php if($this->countModules('elektro-center_bottom_m') or $this->countModules('elektro-center_bottom_m1')
 				or $this->countModules('elektro-center_bottom_m2') or $this->countModules('elektro-center_bottom_m3')) : ?>
 				<div class="elektro-center_bottom_m_old">
-	        		<div class="elektro-center_bottom_m" <?php if($this->countModules('elektro-center_bottom_m1') ) : ?>style="width:60%;"<?php endif; ?> ><jdoc:include type="modules" name="elektro-center_bottom_m"  style="xhtml" /></div>
+	        		<div class="elektro-center_bottom_m" <?php if($this->countModules('elektro-center_bottom_m1') ) : ?>style="width:60%;"<?php endif; ?> >
+                        <jdoc:include type="modules" name="elektro-center_bottom_m"  style="xhtml" />
+                    </div>
 					<div class="elektro-center_bottom_m1"><jdoc:include type="modules" name="elektro-center_bottom_m1"  style="xhtml" /></div>
 					<div class="elektro-center_bottom_m2"><jdoc:include type="modules" name="elektro-center_bottom_m2"  style="xhtml" /></div>
 					<div class="elektro-center_bottom_m3"><jdoc:include type="modules" name="elektro-center_bottom_m3"  style="xhtml" /></div>
@@ -423,9 +397,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>	
 </div>
-</div>	
+</div>
 
-		
+
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TS4LFLL');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Analytics   -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-47068506-1', 'pro-spec.ru');
+    ga('send', 'pageview');
+</script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
     (function (d, w, c) {
