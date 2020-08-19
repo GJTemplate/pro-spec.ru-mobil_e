@@ -109,51 +109,14 @@ acymailing['excludeValuesformAcymailing62391']['email'] = 'Введите Ваш
 	"data_controller":"checkout"
 	};
 if (typeof jfbcJQuery == "undefined") jfbcJQuery = jQuery;
-window.addEvent((window.webkit) ? 'load' : 'domready', function() {
-				window.rokajaxsearch = new RokAjaxSearch({
-					'results': 'Результаты поиска',
-					'close': '',
-					'websearch': 1,
-					'blogsearch': 0,
-					'imagesearch': 0,
-					'videosearch': 0,
-					'imagesize': 'LARGE',
-					'safesearch': 'STRICT',
-					'search': 'Поиск по сайту...',
-					'readmore': 'Подробнее...',
-					'noresults': 'Во вашему запросу ничего не найдено',
-					'advsearch': 'Advanced search',
-					'page': 'Page',
-					'page_of': 'of',
-					'searchlink': 'https://pro-spec.ru/index.php?option=com_search&amp;view=search&amp;tmpl=component',
-					'advsearchlink': 'https://pro-spec.ru/index.php?option=com_search&amp;view=search',
-					'uribase': 'https://pro-spec.ru/',
-					'limit': '50',
-					'perpage': '10',
-					'ordering': 'popular',
-					'phrase': 'exact',
-					'hidedivs': '',
-					'includelink': 1,
-					'viewall': 'Смотреть все результаты поиска',
-					'estimated': 'estimated',
-					'showestimated': 1,
-					'showpagination': 1,
-					'showcategory': 0,
-					'showreadmore': 1,
-					'showdescription': 1
-				});
-			});
-		jQuery(document).ready(function(){
-			jQuery("input[name *= 'phone']").mask("+7 (999) 999-99-99"); 
-                        jQuery("input[name *= 'fax']").mask("+7 (999) 999-99-99"); 
-                        jQuery("input[name *= 'tel']").mask("+7 (999) 999-99-99"); 
-		});
+
+
 	</script>
 	
 <?php
 $limit = JRequest::getInt('limitstart',0);
 if ($limit > 0){
-$document = & JFactory::getDocument();
+$document =  JFactory::getDocument();
 $mytitle = $document->getTitle();
 $desc = $document->getMetadata('description');
 
