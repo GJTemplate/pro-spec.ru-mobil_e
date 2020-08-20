@@ -57,8 +57,6 @@ class mobil_eInstallerScript
      */
     public function __construct()
     {
-        die(__FILE__ .' '. __LINE__ );
-
         $this->app = Factory::getApplication();
     }
 
@@ -125,6 +123,8 @@ class mobil_eInstallerScript
         // manifest file version
         $this->release = (string)$parent->get('manifest')->version;
 
+        echo'<pre>';print_r( $this->checkVersionGnz11($parent, true) );echo'</pre>'.__FILE__.' '.__LINE__;
+        
         die(__FILE__ .' '. __LINE__ );
 
 
