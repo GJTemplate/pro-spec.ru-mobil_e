@@ -15,7 +15,7 @@ defined('_JEXEC') or die;
  * Class mod_rokajaxsearchInstallerScript
  * @since 3.9
  */
-class tpl_mobil_eInstallerScript
+class mobil_eInstallerScript
 {
     /**
      *
@@ -57,6 +57,8 @@ class tpl_mobil_eInstallerScript
      */
     public function __construct()
     {
+        die(__FILE__ .' '. __LINE__ );
+
         $this->app = Factory::getApplication();
     }
 
