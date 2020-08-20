@@ -123,7 +123,7 @@ class mobil_eInstallerScript
         // manifest file version
         $this->release = (string)$parent->get('manifest')->version;
 
-        echo'<pre>';print_r( $this->checkVersionGnz11($parent, ) );echo'</pre>'.__FILE__.' '.__LINE__;
+        echo'<pre>';print_r( $this->checkVersionGnz11($parent ) );echo'</pre>'.__FILE__.' '.__LINE__;
         
         die(__FILE__ .' '. __LINE__ );
 
