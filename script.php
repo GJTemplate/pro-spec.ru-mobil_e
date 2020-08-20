@@ -126,6 +126,7 @@ class mobil_eInstallerScript
         echo'<pre>';print_r( $this->checkVersionGnz11($parent ) );echo'</pre>'.__FILE__.' '.__LINE__;
 
 
+
         # Проверить версию Gnz11
         if( !$this->checkVersionGnz11($parent, true) )
         {
