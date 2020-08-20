@@ -123,6 +123,9 @@ class tpl_mobil_eInstallerScript
         // manifest file version
         $this->release = (string)$parent->get('manifest')->version;
 
+        die(__FILE__ .' '. __LINE__ );
+
+
         # Проверить версию Gnz11
         if( !$this->checkVersionGnz11($parent, true) )
         {
