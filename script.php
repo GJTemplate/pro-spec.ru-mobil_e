@@ -124,9 +124,6 @@ class mobil_eInstallerScript
         $this->release = (string)$parent->get('manifest')->version;
 
         echo'<pre>';print_r( $this->checkVersionGnz11($parent ) );echo'</pre>'.__FILE__.' '.__LINE__;
-        echo'<pre>';print_r( $this->checkVersionGnz11($parent ) );echo'</pre>'.__FILE__.' '.__LINE__;
-        echo'<pre>';print_r( $this->checkVersionGnz11($parent ) );echo'</pre>'.__FILE__.' '.__LINE__;
-
 
 
         # Проверить версию Gnz11
