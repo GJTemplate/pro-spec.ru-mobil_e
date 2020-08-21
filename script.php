@@ -58,14 +58,18 @@ class mobil_eInstallerScript
     public function __construct()
     {
         $this->app = Factory::getApplication();
-         echo'<pre>';print_r( Text::_('TEMPLATE_DETAILS_DEBUG') );echo'</pre>'.__FILE__.' '.__LINE__;
-         die(__FILE__ .' '. __LINE__ );
 
         /**
          * Загрузка языкового файла
          */
         $language =  Factory::getLanguage();
-        $language->load('plg_user_zusers' , JPATH_PLUGINS.'/user/zusers/language' , $language->getTag(), true);
+        $language->load('mobil_e' , JPATH_PLUGINS.'/user/zusers/language' , $language->getTag(), true);
+
+         echo'<pre>';print_r(  __DIR__ );echo'</pre>'.__FILE__.' '.__LINE__;
+         echo'<pre>';print_r( Text::_('TEMPLATE_DETAILS_DEBUG') );echo'</pre>'.__FILE__.' '.__LINE__;
+         die(__FILE__ .' '. __LINE__ );
+
+
     }
 
     /**
