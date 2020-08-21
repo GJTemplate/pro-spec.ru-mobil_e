@@ -63,7 +63,7 @@ class mobil_eInstallerScript
          * Загрузка языкового файла
          */
         $language =  Factory::getLanguage();
-        $language->load('mobil_e' , JPATH_PLUGINS.'/user/zusers/language' , $language->getTag(), true);
+        $language->load('mobil_e' , __DIR__.'/language' , $language->getTag(), true);
 
          echo'<pre>';print_r(  __DIR__ );echo'</pre>'.__FILE__.' '.__LINE__;
          echo'<pre>';print_r( Text::_('TEMPLATE_DETAILS_DEBUG') );echo'</pre>'.__FILE__.' '.__LINE__;
