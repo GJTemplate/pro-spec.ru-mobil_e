@@ -64,7 +64,7 @@ class mobil_eInstallerScript
          */
         $language =  Factory::getLanguage();
         $language->load('tpl_mobil_e' , __DIR__.'/language' , $language->getTag(), true);
-        $language->load('tpl_mobil_e' , dirname(__FILE__).'' , $language->getTag(), true);
+//        $language->load('tpl_mobil_e' , dirname(__FILE__).'' , $language->getTag(), true);
 
 
 
