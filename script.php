@@ -58,6 +58,14 @@ class mobil_eInstallerScript
     public function __construct()
     {
         $this->app = Factory::getApplication();
+         echo'<pre>';print_r( Text::_('TEMPLATE_DETAILS_DEBUG') );echo'</pre>'.__FILE__.' '.__LINE__;
+         die(__FILE__ .' '. __LINE__ );
+
+        /**
+         * Загрузка языкового файла
+         */
+        $language =  Factory::getLanguage();
+        $language->load('plg_user_zusers' , JPATH_PLUGINS.'/user/zusers/language' , $language->getTag(), true);
     }
 
     /**
@@ -187,7 +195,7 @@ class mobil_eInstallerScript
         }
         if( !$mute )
         {
-            $mes = 'Версия библиотеки GNZ11 (' . $this->VersionGnz11 . ') <b>В актуальном состояни</b></b>';
+            $mes = 'Версия библиотеки GNZ11 (' . $this->VersionGnz11 . ') <b style="color: #ff7600;">В актуальном состояни</b></b>' .PHP_EOL ;
             $this->app->enqueueMessage($mes);
         }
 
