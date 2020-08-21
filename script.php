@@ -66,6 +66,7 @@ class mobil_eInstallerScript
         $language->load('mobil_e' , __DIR__.'/language' , $language->getTag(), true);
 
          echo'<pre>';print_r(  __DIR__ );echo'</pre>'.__FILE__.' '.__LINE__;
+         echo'<pre>';print_r(  $language );echo'</pre>'.__FILE__.' '.__LINE__;
          echo'<pre>';print_r( Text::_('TEMPLATE_DETAILS_DEBUG') );echo'</pre>'.__FILE__.' '.__LINE__;
          die(__FILE__ .' '. __LINE__ );
 
