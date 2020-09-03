@@ -7,7 +7,7 @@
 	<authorUrl>http://mystery27.pp.ua</authorUrl>
 	<copyright>Copyright (C) 2015 All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>1.1.5</version>
+	<version>1.1.7</version>
 	<description>TPL_ELEKTRO_XML_DESCRIPTION</description>
 
 	<scriptfile>script.php</scriptfile>
@@ -35,8 +35,9 @@
 		<filename>style.css</filename>
 		<filename>template_preview.png</filename>
 		<filename>template_thumbnail.png</filename>
-		<filename>update.xml</filename>
 		<filename>templateDetails.xml</filename>
+		<filename>update.xml</filename>
+
 	</files>
 
 	<config>
@@ -53,8 +54,20 @@
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
-				
-				 
+				<field name="csitical_css_as_file"
+					type="radio"
+					default="0"
+					label="TEMPLATE_DETAILS_CSITICAL_CSS_AS_FILE"
+					description="TEMPLATE_DETAILS_CSITICAL_CSS_AS_FILE_DESC"
+					class="btn-group btn-group-yesno"
+					showon="debug:1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+
+
 			</fieldset>
 		</fields>	
 	</config>
