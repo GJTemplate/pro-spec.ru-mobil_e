@@ -7,7 +7,7 @@
 	<authorUrl>http://mystery27.pp.ua</authorUrl>
 	<copyright>Copyright (C) 2015 All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>1.1.7</version>
+	<version>1.1.8</version>
 	<description>TPL_ELEKTRO_XML_DESCRIPTION</description>
 
 	<scriptfile>script.php</scriptfile>

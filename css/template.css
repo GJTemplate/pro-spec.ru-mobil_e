@@ -11,7 +11,7 @@
 .blog-featured h2 {
     font-size: 1.5em;
     margin-bottom: 0;
-}
+} 
 p.readmore {
     font-size: 0.9em;
     text-indent: 0;
@@ -104,9 +104,10 @@ ul.joomla-nav_topmenu li a:hover {
     background: #2786da none repeat scroll 0 0;
 }
 #header_elektro {
-    margin: 8px 0 15px;
+    /* margin: 8px 0 15px; */
     min-width: 100%;
-    padding: 0;
+    /* padding: 0; */
+    float: left;
 }
 .joomla-cart {
     padding: 0;
@@ -374,7 +375,7 @@ ul.joomla-nav_topmenu li a:hover {
 .cart_image {
 }
 .elektro-header-menu {
-    margin: 0;
+    /* margin: 0; */
 }
 .elektro-regist {
     margin: 0;
@@ -1237,7 +1238,7 @@ ul.joomla-nav_topmenu li a:hover {
     margin: 10px 0 0 -5px;
 }
 #elektro_logo img {
-    width: 100%;
+    /* width: 100%; */
 }
 
 .blog-featured h2 {
@@ -1646,10 +1647,10 @@ ul.joomla-nav_topmenu li a:hover {
 }
 .elektro-header-menu {
     float: right;
-    margin: 10px 10px 0;
     font-family: arial;
 }
-.elektro-regist {
+.elektro-header-menu p{
+    font-size: 8px;
 }
 .od.menu {
     margin: 0;
@@ -1865,6 +1866,7 @@ ul.joomla-nav_topmenu li a:hover {
 #search {
     text-align: center;
     width: 100%;
+    float: left;
 }
 .elektro-center_bottom2 {
     clear: both;
@@ -2540,12 +2542,13 @@ ul.joomla-nav_topmenu li a:hover {
     margin: 10px 0 0 -5px;
 }
 #elektro_logo img {
-    width: 100% !important;
-    height: auto !important;
+    width: 159px;
+    height: 52px;
 }
 #elektro_logo {
     float: left;
-    width: 100%;
+    /* width: 100%; */
+    /* margin-left: 8px; */
 }
 #footer_fixet {
 	background: #B41F25 none repeat scroll 0% 0%;
@@ -4156,3 +4159,8 @@ div.contactus-lightbox-closer > i {
 	width: 50px;
 }
 .block_sorting_count_to_page{display:none;}
+
+div#header_elektro > div.container {
+    margin: 6px;
+    width: calc(100% - 12px);
+}
