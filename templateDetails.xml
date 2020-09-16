@@ -54,7 +54,7 @@
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
-				<field name="csitical_css_as_file"
+				<field name="critical_as_file"
 					type="radio"
 					default="0"
 					label="TEMPLATE_DETAILS_CSITICAL_CSS_AS_FILE"

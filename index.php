@@ -28,12 +28,13 @@ if (!defined('TEMPLATE_VERSION'))
     define('TEMPLATE_VERSION', $version);
 }
 
+
 # DOM PROP add tag <style />
 # Reset и Основные свойства свойств CSS
 $pathStyle = JPATH_THEMES . '/mobil_e/assets/css/critical.template.css';
 $params = [
     'debug' => $this->params->get('debug', false),
-    'asFile' => $this->params->get('csitical_css_as_file', false),
+    'asFile' => $this->params->get('critical_as_file', false),
 ];
 \GNZ11\Document\Document::addIncludeStyleDeclaration($pathStyle, $params);
 
